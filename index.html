@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Controle financeiro pessoal simples e gratuito.">
+
+    <title>Meu Controle Financeiro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="pagina">
+
+        <section class="app">
+
+            <!-- CABEÇALHO -->
+
+            <header class="cabecalho">
+
+                <div>
+                    <h1>Meu Financeiro</h1>
+
+                    <p>
+                        Organize suas finanças de forma simples.
+                    </p>
+                </div>
+
+            </header>
+
+
+            <!-- RESUMO -->
+
+            <section class="resumo">
+
+                <article class="card saldo">
+                    <span>Saldo atual</span>
+
+                    <strong id="saldo">
+                        R$ 0,00
+                    </strong>
+                </article>
+
+
+                <article class="card entrada">
+                    <span>Entradas</span>
+
+                    <strong id="entradas">
+                        R$ 0,00
+                    </strong>
+                </article>
+
+
+                <article class="card saida">
+                    <span>Despesas</span>
+
+                    <strong id="despesas">
+                        R$ 0,00
+                    </strong>
+                </article>
+
+            </section>
+
+
+            <!-- NOVO LANÇAMENTO -->
+
+            <section class="novo-lancamento">
+
+                <h2 id="titulo-formulario">
+                    Novo lançamento
+                </h2>
+
+                <form id="formulario">
+
+                    <div class="campo">
+
+                        <label for="descricao">
+                            Descrição
+                        </label>
+
+                        <input type="text" id="descricao" placeholder="Ex: Mercado" required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="valor">
+                            Valor
+                        </label>
+
+                        <input type="number" id="valor" placeholder="0,00" step="0.01" min="0.01" required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="tipo">
+                            Tipo
+                        </label>
+
+                        <select id="tipo">
+
+                            <option value="entrada">
+                                Entrada
+                            </option>
+
+                            <option value="despesa">
+                                Despesa
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="categoria">
+                            Categoria
+                        </label>
+
+                        <select id="categoria">
+
+                            <option value="salario">
+                                Salário
+                            </option>
+
+                            <option value="alimentacao">
+                                Alimentação
+                            </option>
+
+                            <option value="transporte">
+                                Transporte
+                            </option>
+
+                            <option value="moradia">
+                                Moradia
+                            </option>
+
+                            <option value="contas">
+                                Contas
+                            </option>
+
+                            <option value="lazer">
+                                Lazer
+                            </option>
+
+                            <option value="outros">
+                                Outros
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="data">
+                            Data
+                        </label>
+
+                        <input type="date" id="data" required>
+
+                    </div>
+
+
+                    <button type="submit" class="botao-adicionar">
+                        + Adicionar lançamento
+                    </button>
+
+                    <button type="button" id="botao-cancelar" class="botao-cancelar">
+                        Cancelar edição
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section class="grafico-container">
+                <h2>Resumo financeiro</h2>
+
+                <div class="canvas-wrapper">
+                    <canvas id="graficoFinanceiro">
+                        Seu navegador não suporta Canvas.
+                    </canvas>
+                </div>
+            </section>
+
+            <section class="relatorio-container">
+
+                <h2>Despesas por categoria</h2>
+
+                <div id="relatorio-categorias"></div>
+
+            </section>
+
+
+            <!-- LANÇAMENTOS -->
+
+            <!-- LANÇAMENTOS -->
+            <section class="lancamentos">
+
+                <div class="titulo-lista">
+
+                    <h2>Últimos lançamentos</h2>
+
+                    <div class="acoes-lista">
+                        <button id="exportar-csv" class="botao-exportar">
+                            Exportar CSV
+                        </button>
+
+                        <button id="limpar-tudo" class="botao-limpar">
+                            Limpar tudo
+                        </button>
+                    </div>
+
+                </div>
+
+                
+
+
+                    <div class="filtros">
+
+                        <div class="filtro-busca">
+                            <label for="buscar">Buscar lançamento</label>
+                            <input type="search" id="buscar" placeholder="Ex: mercado, gasolina...">
+                        </div>
+
+
+                        <div class="filtro-campo">
+                            <label for="filtro-tipo">Tipo</label>
+
+                            <select id="filtro-tipo">
+                                <option value="todos">Todos</option>
+                                <option value="entrada">Entradas</option>
+                                <option value="despesa">Despesas</option>
+                            </select>
+                        </div>
+
+
+                        <div class="filtro-campo">
+                            <label for="filtro-categoria">Categoria</label>
+
+                            <select id="filtro-categoria">
+                                <option value="todas">Todas</option>
+                                <option value="salario">Salário</option>
+                                <option value="alimentacao">Alimentação</option>
+                                <option value="transporte">Transporte</option>
+                                <option value="moradia">Moradia</option>
+                                <option value="contas">Contas</option>
+                                <option value="lazer">Lazer</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+
+
+                        <div class="filtro-campo">
+                            <label for="data-inicial">Data inicial</label>
+
+                            <input type="date" id="data-inicial">
+                        </div>
+
+
+                        <div class="filtro-campo">
+                            <label for="data-final">Data final</label>
+
+                            <input type="date" id="data-final">
+                        </div>
+
+                    </div>
+
+                    <div id="lista" class="lista">
+                        <!-- Lançamentos criados pelo JavaScript -->
+                    </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

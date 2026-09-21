@@ -1,0 +1,792 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f5f7;
+    color: #222;
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* =========================================
+   PÁGINA
+========================================= */
+
+.pagina {
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.app {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.cabecalho {
+    margin-bottom: 30px;
+}
+
+.cabecalho h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.cabecalho p {
+    color: #777;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   RESUMO
+========================================= */
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid #eeeeee;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card span {
+    display: block;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card strong {
+    display: block;
+    font-size: 25px;
+}
+
+.entrada strong {
+    color: #18794e;
+}
+
+.saida strong {
+    color: #b42318;
+}
+
+
+/* =========================================
+   NOVO LANÇAMENTO
+========================================= */
+
+.novo-lancamento {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid #eeeeee;
+
+    margin-bottom: 25px;
+}
+
+.novo-lancamento h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+#formulario {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    background: #fff;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.campo input:hover,
+.campo select:hover {
+    border-color: #bbb;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: #555;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================
+   BOTÃO ADICIONAR
+========================================= */
+
+.botao-adicionar {
+    grid-column: span 2;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #222;
+
+    color: #fff;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.botao-adicionar:hover {
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+.botao-adicionar:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   AÇÕES DA LISTA E BOTÃO EXPORTAR
+========================================= */
+.acoes-lista {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.botao-exportar {
+    border: none;
+    background: transparent;
+    color: #18794e;
+    /* Cor verde para indicar ação positiva */
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.botao-exportar:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   LANÇAMENTOS
+========================================= */
+
+.lancamentos {
+    background: #ffffff;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid #eeeeee;
+}
+
+
+/* =========================================
+   TÍTULO DA LISTA
+========================================= */
+
+.titulo-lista {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.titulo-lista h2 {
+    font-size: 20px;
+}
+
+
+/* =========================================
+   BOTÃO LIMPAR
+========================================= */
+
+.botao-limpar {
+    border: none;
+
+    background: transparent;
+
+    color: #b42318;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    padding: 5px;
+}
+
+.botao-limpar:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   LISTA
+========================================= */
+
+.lista {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   LANÇAMENTO INDIVIDUAL
+========================================= */
+
+.lancamento {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    background: #f7f7f7;
+
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.lancamento:hover {
+    background: #ffffff;
+
+    border-color: #e5e5e5;
+}
+
+.lancamento-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.lancamento-descricao {
+    font-weight: bold;
+
+    margin-bottom: 5px;
+
+    word-break: break-word;
+}
+
+.lancamento-detalhes {
+    color: #777;
+
+    font-size: 13px;
+}
+
+.lancamento-valor {
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.valor-entrada {
+    color: #18794e;
+}
+
+.valor-despesa {
+    color: #b42318;
+}
+
+
+/* =========================================
+   BOTÃO EXCLUIR
+========================================= */
+
+.botao-excluir {
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    padding: 5px;
+
+    opacity: 0.65;
+}
+
+.botao-excluir:hover {
+    opacity: 1;
+
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   LISTA VAZIA
+========================================= */
+
+.lista-vazia {
+    text-align: center;
+
+    color: #999;
+
+    padding: 30px 10px;
+}
+
+
+/* =========================================
+   GRÁFICO
+========================================= */
+
+.grafico-container {
+    background: #ffffff;
+
+    padding: 25px;
+
+    margin-top: 25px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid #eeeeee;
+
+    margin-bottom: 25px;
+}
+
+.grafico-container h2 {
+    font-size: 20px;
+
+    margin-bottom: 20px;
+}
+
+.canvas-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    height: 320px;
+}
+
+#graficoFinanceiro {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+    .resumo {
+        grid-template-columns: 1fr;
+    }
+
+    #formulario {
+        grid-template-columns: 1fr;
+    }
+
+    #formulario {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .campo input,
+    .campo select {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .botao-adicionar {
+        grid-column: span 1;
+    }
+
+    .pagina {
+        padding: 25px 15px;
+    }
+
+    .cabecalho h1 {
+        font-size: 27px;
+    }
+
+    .lancamento {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================
+   FILTROS
+========================================= */
+
+.filtros {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    padding: 15px;
+
+    background: #f7f7f7;
+
+    border-radius: 12px;
+}
+
+.filtro-busca,
+.filtro-campo {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.filtro-busca label,
+.filtro-campo label {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #555;
+}
+
+.filtro-busca input,
+.filtro-campo select {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.filtro-busca input:focus,
+.filtro-campo select:focus {
+    border-color: #555;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   CELULARES PEQUENOS
+========================================= */
+
+@media (max-width: 450px) {
+
+    .novo-lancamento,
+    .lancamentos,
+    .card,
+    .grafico-container {
+        padding: 18px;
+    }
+
+    .lancamento {
+        flex-wrap: wrap;
+    }
+
+    .lancamento-valor {
+        width: 100%;
+    }
+
+    .grafico-container {
+        overflow: hidden;
+    }
+
+    .canvas-wrapper {
+        height: 280px;
+    }
+
+    .filtros {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .botao-cancelar {
+        grid-column: span 1;
+    }
+
+    .titulo-lista {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .acoes-lista {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    .botao-exportar,
+    .botao-limpar {
+        flex: 1;
+        text-align: center;
+    }
+
+    .lancamento {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .lancamento-info {
+        width: 100%;
+    }
+
+    .lancamento-valor {
+        font-size: 15px;
+    }
+
+    .acoes-lancamento {
+        flex-shrink: 0;
+    }
+
+    .botao-editar,
+    .botao-excluir {
+        font-size: 19px;
+        padding: 7px;
+    }
+
+    .botao-exportar,
+    .botao-limpar {
+        padding: 10px 12px;
+    }
+
+}
+
+/* =========================================
+   AÇÕES DO LANÇAMENTO
+========================================= */
+
+.acoes-lancamento {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.botao-editar,
+.botao-excluir {
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    padding: 5px;
+
+    opacity: 0.65;
+}
+
+.botao-editar:hover,
+.botao-excluir:hover {
+    opacity: 1;
+
+    transform: scale(1.1);
+}
+
+/* =========================================
+   BOTÃO CANCELAR
+========================================= */
+
+.botao-cancelar {
+    grid-column: span 2;
+
+    padding: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: #555;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    display: none;
+}
+
+.botao-cancelar:hover {
+    background: #f5f5f5;
+}
+
+/* =====================================
+RELATÓRIO POR CATEGORIAS
+===================================== */
+.relatorio-container {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    margin-bottom: 25px;
+}
+
+.relatorio-container h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+#relatorio-categorias {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.categoria-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.categoria-item span {
+    color: #444;
+    font-weight: 500;
+}
+
+.categoria-item strong {
+    color: #b42318;
+    font-weight: bold;
+}
+
+.relatorio-vazio {
+    text-align: center;
+    color: #999;
+    padding: 20px 10px;
+}
